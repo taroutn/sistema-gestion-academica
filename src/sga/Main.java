@@ -4,15 +4,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        GestorSolicitudes gestor = new GestorSolicitudes();
+        // 1. Inyectamos la dependencia (DIP)
+        SolicitudRepository repo = new InMemorySolicitudRepository();
+        GestorSolicitudes gestor = new GestorSolicitudes(repo);
 
-        GestorSolicitudes.baseDeDatosResponsables.add(new Responsable("RESP-01", "Laura Gómez", "ALUMNOS", 0, 2));
-        GestorSolicitudes.baseDeDatosResponsables.add(new Responsable("RESP-02", "Carlos Ruiz", "DIRECCION", 0, 5));
-        GestorSolicitudes.baseDeDatosResponsables.add(new Responsable("RESP-03", "Marta Díaz", "EXAMENES", 0, 3));
+        // 2. Precarga de responsables usando el repositorio
+        repo.guardarResponsable(new Responsable("RESP-01", "Laura Gómez", "ALUMNOS", 0, 2));
+        repo.guardarResponsable(new Responsable("RESP-02", "Carlos Ruiz", "DIRECCION", 0, 5));
+        repo.guardarResponsable(new Responsable("RESP-03", "Marta Díaz", "EXAMENES", 0, 3));
 
         System.out.println("--- 1. PRUEBA DE REGISTRO DE SOLICITUDES ---");
         
-        // Usamos el Parameter Object
         RegistroSolicitudRequest req1 = new RegistroSolicitudRequest(
                 "LEG-101", "Juan", "Pérez", "juan.perez@utn.edu.ar", "42111222",
                 24, true, "CERTIFICADO", "Solicito certificado de alumno regular para presentar en el trabajo."
@@ -32,9 +34,9 @@ public class Main {
         System.out.println(gestor.registrarSolicitud(req3));
 
         System.out.println("\n--- 2. PRUEBA DE ASIGNACIÓN DE RESPONSABLES ---");
-        System.out.println(gestor.asignarResponsable(1001, "RESP-01"));
-        System.out.println(gestor.asignarResponsable(1002, "RESP-01"));
-        System.out.println(gestor.asignarResponsable(1002, "RESP-02"));
+        System.out.println(gestor.asignarResponsable(1001, "RESP-01")); // OK: Certificado -> ALUMNOS
+        System.out.println(gestor.asignarResponsable(1002, "RESP-01")); // ERROR esperado: Equivalencia no va a ALUMNOS
+        System.out.println(gestor.asignarResponsable(1002, "RESP-02")); // OK: Equivalencia -> DIRECCION
 
         System.out.println("\n--- 3. PRUEBA DE CAMBIO DE ESTADO ---");
         System.out.println(gestor.cambiarEstadoSolicitud(1001, "APROBADA", "Certificado emitido y firmado digitalmente."));
