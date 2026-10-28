@@ -106,7 +106,7 @@ public class GestorSolicitudes {
         // 4. Asignamos
         sol.setResponsableAsignado(resp);
         sol.setEstado(EstadoSolicitud.EN_REVISION);
-        resp.setSolicitudesActivas(resp.getSolicitudesActivas() + 1);
+        resp.incrementarCarga();
 
         logsAuditoria.add("[LOG] Solicitud " + idSolicitud + " asignada a " + resp.getNombreCompleto());
         return "OK: Solicitud " + idSolicitud + " asignada a " + resp.getNombreCompleto() + " y pasada a EN_REVISION";
@@ -164,7 +164,7 @@ public class GestorSolicitudes {
 
         if ((estadoEnum == EstadoSolicitud.APROBADA || estadoEnum == EstadoSolicitud.RECHAZADA) && sol.getResponsableAsignado() != null) {
             Responsable r = sol.getResponsableAsignado();
-            r.setSolicitudesActivas(r.getSolicitudesActivas() - 1);
+            r.liberarCarga();
         }
 
         logsAuditoria.add("[LOG] Solicitud " + idSolicitud + " cambió a estado " + nuevoEstado);

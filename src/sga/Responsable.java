@@ -20,6 +20,10 @@ public class Responsable {
     public String getArea() { return area; }
     public int getSolicitudesActivas() { return solicitudesActivas; }
     public int getMaximoPermitido() { return maximoPermitido; }
-    
     public void setSolicitudesActivas(int solicitudesActivas) { this.solicitudesActivas = solicitudesActivas; }
+    public boolean tieneCupoDisponible() { return this.solicitudesActivas < this.maximoPermitido;}
+    public void incrementarCarga() {this.solicitudesActivas++;}
+    public void liberarCarga() { if (this.solicitudesActivas > 0) {this.solicitudesActivas--;}
+
+    }
 }
