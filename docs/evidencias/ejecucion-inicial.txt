@@ -1,0 +1,29 @@
+--- 1. PRUEBA DE REGISTRO DE SOLICITUDES ---
+OK: Solicitud registrada con ID 1001 (Prioridad 1, Estimado: 3 días)
+OK: Solicitud registrada con ID 1002 (Prioridad 2, Estimado: 20 días)
+OK: Solicitud registrada con ID 1003 (Prioridad 1, Estimado: 5 días)
+
+--- 2. PRUEBA DE ASIGNACIÓN DE RESPONSABLES ---
+OK: Solicitud 1001 asignada a Laura Gómez y pasada a EN_REVISION
+ERROR: Las equivalencias solo las gestiona DIRECCION
+OK: Solicitud 1002 asignada a Carlos Ruiz y pasada a EN_REVISION
+
+--- 3. PRUEBA DE CAMBIO DE ESTADO ---
+OK: Estado actualizado a APROBADA
+OK: Estado actualizado a RECHAZADA
+
+--- 4. PRUEBA DE BÚSQUEDA Y FILTRADO ---
+Solicitudes con prioridad Alta (1) encontradas: 2
+ -> ID: 1001 | Tipo: CERTIFICADO | Estado: APROBADA | Alumno: Juan Pérez
+ -> ID: 1003 | Tipo: EXCEPCION | Estado: PENDIENTE | Alumno: Pedro Sánchez
+
+--- 5. REPORTE GENERAL ---
+=== REPORTE DE SOLICITUDES ACADÉMICAS ===
+Total registradas: 3
+ - Pendientes: 1
+ - En Revisión: 0
+ - Aprobadas: 1
+ - Rechazadas: 1
+Solicitudes de Prioridad Alta (1): 2
+Eventos de auditoría registrados: 7
+=========================================
