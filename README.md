@@ -2,10 +2,12 @@
 
 ## Caso: Sistema de Gestión de Solicitudes Académicas
 
-## Descripción del sistema base
+## Descripción del sistema
 Este proyecto es el sistema base seleccionado para el Trabajo Práctico Integrador (TPI). Permite registrar solicitudes académicas de estudiantes, clasificarlas, asignar un responsable del área correspondiente y gestionar el cambio de estados hasta su resolución.
 
-Actualmente, el proyecto representa el hito `estado-inicial`, donde el sistema funciona correctamente desde la mirada del usuario (calidad externa), pero presenta intencionalmente múltiples oportunidades de mejora en su estructura interna (deuda técnica y code smells).
+El proyecto inició en el hito `estado-inicial`, donde el sistema funcionaba correctamente desde la mirada del usuario (calidad externa), pero presentaba intencionalmente múltiples oportunidades de mejora en su estructura interna (deuda técnica y code smells). 
+
+Actualmente, el proyecto se encuentra en el hito `etapa-pruebas`. Tras haber sanitizado el código (aplicando principios SOLID, separación de responsabilidades y patrones de diseño), se realizó una verificación exhaustiva para garantizar la no regresión. El sistema mantiene su calidad externa y ahora cuenta con una arquitectura interna mucho más limpia y mantenible.
 
 ## ⚙️ Tecnologías utilizadas
 - **Lenguaje:** Java
@@ -27,8 +29,10 @@ Para clonar y ejecutar el proyecto localmente desde la terminal:
 ```bash
 git clone https://github.com/taroutn/sistema-gestion-academica.git
 cd sistema-gestion-academica/src
-# Compilar todos los archivos del proyecto
+
+# Compilar todos los archivos del proyecto (versión refactorizada)
 javac $(find sga -name "*.java")
+
 # Ejecutar la clase principal
 java sga.Main
 
