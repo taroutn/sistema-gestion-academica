@@ -27,7 +27,9 @@ Para clonar y ejecutar el proyecto localmente desde la terminal:
 ```bash
 git clone https://github.com/taroutn/sistema-gestion-academica.git
 cd sistema-gestion-academica/src
-javac sga/Main.java
+# Compilar todos los archivos del proyecto
+javac $(find sga -name "*.java")
+# Ejecutar la clase principal
 java sga.Main
-````
+
 (Si utilizás IntelliJ IDEA, basta con abrir la carpeta del proyecto y ejecutar el archivo Main.java con el botón de Run).
