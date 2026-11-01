@@ -7,7 +7,7 @@ Este proyecto es el sistema base seleccionado para el Trabajo Práctico Integrad
 
 El proyecto inició en el hito `estado-inicial`, donde el sistema funcionaba correctamente desde la mirada del usuario (calidad externa), pero presentaba intencionalmente múltiples oportunidades de mejora en su estructura interna (deuda técnica y code smells). 
 
-Actualmente, el proyecto se encuentra en el hito `etapa-pruebas`. Tras haber sanitizado el código (aplicando principios SOLID, separación de responsabilidades y patrones de diseño), se realizó una verificación exhaustiva para garantizar la no regresión. El sistema mantiene su calidad externa y ahora cuenta con una arquitectura interna mucho más limpia y mantenible.
+Actualmente, el proyecto se encuentra en su versión final y definitiva (`estadorefactorizado`), habiendo superado exitosamente la validación funcional de no regresión (`etapa-pruebas`) y la revisión técnica formal por pares (`etapa-docs`). El sistema mantiene su calidad externa intacta y ahora cuenta con una arquitectura interna limpia, altamente cohesiva y escalable aplicando principios SOLID.
 
 ## ⚙️ Tecnologías utilizadas
 - **Lenguaje:** Java
@@ -35,5 +35,12 @@ javac $(find sga -name "*.java")
 
 # Ejecutar la clase principal
 java sga.Main
+```
 
-(Si utilizás IntelliJ IDEA, basta con abrir la carpeta del proyecto y ejecutar el archivo Main.java con el botón de Run).
+*(Si utilizás IntelliJ IDEA, basta con abrir la carpeta del proyecto y ejecutar el archivo Main.java con el botón de Run).*
+
+## 👥 Equipo de Desarrollo
+- **Cejas, Lautaro Ariel** - Coordinación general, Code Review y Validación.
+- **Suarez, Eric** - Testing y Verificación.
+- **Etchegoyen, Gabriel** - Refactoring y Core Code.
+- **Galarza, Manuel** - Análisis y Diagnóstico.
