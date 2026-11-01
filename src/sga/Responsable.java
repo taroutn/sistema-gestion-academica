@@ -1,11 +1,11 @@
 package sga;
 
 public class Responsable {
-    public String id;
-    public String nombreCompleto;
-    public String area; // "ALUMNOS", "EXAMENES", "TESORERIA", "DIRECCION"
-    public int solicitudesActivas;
-    public int maximoPermitido;
+    private String id;
+    private String nombreCompleto;
+    private String area;
+    private int solicitudesActivas;
+    private int maximoPermitido;
 
     public Responsable(String id, String nombreCompleto, String area, int solicitudesActivas, int maximoPermitido) {
         this.id = id;
@@ -13,5 +13,17 @@ public class Responsable {
         this.area = area;
         this.solicitudesActivas = solicitudesActivas;
         this.maximoPermitido = maximoPermitido;
+    }
+
+    public String getId() { return id; }
+    public String getNombreCompleto() { return nombreCompleto; }
+    public String getArea() { return area; }
+    public int getSolicitudesActivas() { return solicitudesActivas; }
+    public int getMaximoPermitido() { return maximoPermitido; }
+    public void setSolicitudesActivas(int solicitudesActivas) { this.solicitudesActivas = solicitudesActivas; }
+    public boolean tieneCupoDisponible() { return this.solicitudesActivas < this.maximoPermitido;}
+    public void incrementarCarga() {this.solicitudesActivas++;}
+    public void liberarCarga() { if (this.solicitudesActivas > 0) {this.solicitudesActivas--;}
+
     }
 }

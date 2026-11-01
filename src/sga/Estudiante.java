@@ -1,14 +1,13 @@
 package sga;
 
 public class Estudiante {
-    // Smell: Campos públicos sin encapsulamiento (violación de ocultamiento de información)
-    public String legajo;
-    public String nombre;
-    public String apellido;
-    public String email;
-    public String dni;
-    public int materiasAprobadas;
-    public boolean cuotaAlDia;
+    private String legajo;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private String dni;
+    private int materiasAprobadas;
+    private boolean cuotaAlDia;
 
     public Estudiante(String legajo, String nombre, String apellido, String email, String dni, int materiasAprobadas, boolean cuotaAlDia) {
         this.legajo = legajo;
@@ -19,4 +18,12 @@ public class Estudiante {
         this.materiasAprobadas = materiasAprobadas;
         this.cuotaAlDia = cuotaAlDia;
     }
+
+    public String getLegajo() { return legajo; }
+    public String getNombre() { return nombre; }
+    public String getApellido() { return apellido; }
+    public String getEmail() { return email; }
+    public String getDni() { return dni; }
+    public int getMateriasAprobadas() { return materiasAprobadas; }
+    public boolean isCuotaAlDia() { return cuotaAlDia; }
 }
